@@ -4,3 +4,5 @@ config.js
 .eslintrc.*
 coverage/
 .DS_store
+example/dist/
+lib/

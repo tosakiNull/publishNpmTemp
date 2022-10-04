@@ -11,29 +11,23 @@ module.exports = {
         path: path.join(__dirname, "example/dist"),
         filename: "bundle.js"
     },
-    resolve: {
-        alias: {
-            Constants: path.resolve(__dirname, './src/js/constant/'),
-            Options: path.resolve(__dirname, './src/js/options/'),
-            Utils: path.resolve(__dirname, './src/js/utils/'),
-            Styles: path.resolve(__dirname, './src/css/'),
-        },
-    },
     module: {
-        rules: [{
-            test: /\.(js|jsx)$/,
-            use: "babel-loader",
-            exclude: /node_modules/
-        }]
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                use: "babel-loader",
+                exclude: /node_modules/
+            },
+        ],
     },
     plugins: [htmlWebpackPlugin],
     resolve: {
         extensions: [".js", ".jsx"]
     },
     devServer: {
+        static: {
+            directory: path.join(__dirname, '/')
+        },
         port: 3001
-    },
-    watchOptions: {
-        ignored: /node_modules/,
-    },
+    }
 };
